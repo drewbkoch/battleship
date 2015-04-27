@@ -80,8 +80,6 @@ var player2 = [
 ]
 
 
-
-
 //combine all possible coordinates of player
 //TODO: make function --> kind of unnecessary unless more than 2 players
 
@@ -89,9 +87,13 @@ var player1AllCoordinates = player1[0].piece.coordinates.concat(player1[1].piece
 
 var player2AllCoordinates = player2[0].piece.coordinates.concat(player2[2].piece.coordinates, player2[2].piece.coordinates,player2[3].piece.coordinates,player2[4].piece.coordinates);
 
-//add player 1 submit event handler
+//player submit event handler
 $('.move-submitter button').on('click',function() {
   var submission = $(this).siblings('input').val();
+  //clear input
+  $(this).siblings('input').val("")
+
+  var parent = $(this).parents('.move-submitter');
 
   //set which player is the other player
   var otherPlayerNumber = $(this).parents('.move-submitter').attr('data-other-player');
@@ -99,6 +101,14 @@ $('.move-submitter button').on('click',function() {
   var coordinateArray = eval(otherPlayer+"AllCoordinates");
   var otherPlayer = eval(otherPlayer);
   checkArrayForHit(coordinateArray, otherPlayer, submission);
+
+  //next player's turn
+  $('.move-submitter').not(parent).each(function(){
+    $(this).show();
+  });
+
+  parent.hide();
+
 })
 
 function checkArrayForHit(array, player, submission) {
