@@ -10,12 +10,18 @@
   <body>
     <h1>Battleship</h1>
     
-    <div id="playerOneSubmit" data-player="1">
+    <div class="move-submitter" data-other-player="2">
       <label for="move">Player 1 move:</label>
       <input type="text" id="move">
       <button>Submit</button>
     </div>
     
+    <div class="move-submitter" data-other-player="1">
+      <label for="move">Player 2 move:</label>
+      <input type="text" id="move">
+      <button>Submit</button>
+    </div>
+
     <table id="playerOneBoard">
       <tr>
         <th></th>
