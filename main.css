@@ -12,3 +12,19 @@ td {
 #player-2-button {
   display: none;
 }
+
+.hoveredOn {
+  background-color: darkblue;
+}
+
+.selected {
+  background-color: tomato;
+}
+
+#player-2-board {
+  display: none;
+}
+
+#buttons {
+  display: none;
+}
